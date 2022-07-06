@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
-    
-            $table->increments("id_cliente")->unique();
-            $table->string("nome_empresa", 100);
-            $table->string("cnpj", 14)->unique();
-            $table->timestamps();
+        Schema::create('pedidos', function (Blueprint $table) {
+           
+            $table->increments("id_pedido")->unique();
+            $table->foreign("cnpj")->references("id")->on("cnpj");
+            $table->double("valor_frete");
+            $table->string("data_entrega", 8);
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('pedidos');
     }
 };
