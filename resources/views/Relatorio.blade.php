@@ -7,6 +7,6 @@
     <title>Home</title>
 </head>
 <body>
-    <h1> Página Inicial </h1>
+    <h1>Relatório de pedidos</h1>
 </body>
 </html>

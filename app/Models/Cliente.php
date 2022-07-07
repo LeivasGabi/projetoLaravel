@@ -9,9 +9,8 @@ class Cliente extends Model
 //tabela clientes
 {
     protected $fillable = [
-        'id_cliente',
-        'nome_empresa',
-        'cnpj',
-        'data_cadastro',
+        'nome',
+        'cpf', //chave estrangeira
+        'data_cadastro', //autoincremento data atual
     ];
 }

@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Cliente;
 
 
-class ClientesController extends Controller
+class ClienteController extends Controller
+
 {
-    
     public function index()
     {
-        return Cliente::all();
+        return Cliente::all();   
     }
    
     public function store(Request $request)

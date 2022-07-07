@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pedido extends Model
 {
     protected $fillable = [
-
-        'id_pedido',
-        'cnpj',
-        'valor_frete',
+        'id_pedido', //coluna de auto incremento
+        'valor_frete', 
         'data_entrega',
+        'cpf', //chave estrangeira
     ];
 }
