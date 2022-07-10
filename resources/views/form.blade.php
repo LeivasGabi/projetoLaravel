@@ -17,86 +17,51 @@
 
   <Header>
         <ul class="nav justify-content-center fs-2">
-
           <li class="nav-item">
               <a class="nav-link disabled" aria-current="page" href="#">Cadastrar Pedidos</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Relatórios de Pedidos</a>
+              <a class="nav-link active" aria-current="page" href="http://localhost/ProjetoLaravel/resources/views/Relatorio.blade.php">Relatórios de Pedidos</a>
           </li>
         </ul>
     </Header>
     <section>
-      <form class="row g-3 shadow-lg p-3 mb-5 bg-body">
+      <form class="row g-3 shadow-lg p-3 mb-5 bg-body" alt="Max-width 85%">
         <div class="col-md-6">
-          <label for="Nome" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="Nome">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="nome" required maxlength="45">
         </div>
         <div class="col-md-6">
-          <label for="CPF" class="form-label">CPF</label>
-          <input type="number" class="form-control" id="CPF" placeholder="000.000.000-00">
+          <label for="cpf" class="form-label">CPF</label>
+          <input type="number" class="form-control" id="cpf" placeholder="000.000.000-00" data-minlength="11" required>
         </div>
         <div class="col-md-6">
-          <label for="ValorFrete" class="form-label">Valor do Frete</label>
-          <input type="number" class="form-control" id="ValorFrete" placeholder="R$ 150,85">
+          <label for="valorFrete" class="form-label">Valor do Frete</label>
+          <input type="number" class="form-control" id="valorFrete" placeholder="R$ 150,85" required>
         </div>
         <div class="col-md-2">
-          <label for="DataEntrega" class="form-label">Data de Entrega</label>
-          <input type="date" class="form-control" id="DataEntrega">
+          <label for="dataEntrega" class="form-label">Data de Entrega</label>
+          <input type="date" class="form-control" id="dataEntrega" required>
         </div>
         <div class="col-12">
-          <button type="submit" class="btn btn-primary">Cadastrar</button>
+          <button type="submit" id="cadastrar" class="btn btn-primary" onClick="validaFormulario()">Cadastrar</button>
         </div>
       </form>
     </section>
   <script>  
-
-    function validaCPF() {
-
-      cpf = cpf.replace(/[^\d]+/g,'');	
-      if(cpf == '') return false;	
-      // Elimina CPFs invalidos conhecidos	
-      if (cpf.length != 11 || 
-      cpf == "00000000000" || 
-      cpf == "11111111111" || 
-      cpf == "22222222222" || 
-      cpf == "33333333333" || 
-      cpf == "44444444444" || 
-      cpf == "55555555555" || 
-      cpf == "66666666666" || 
-      cpf == "77777777777" || 
-      cpf == "88888888888" || 
-      cpf == "99999999999")
-      return false;		
-      // Valida o primeiro digito	
-      add = 0;	
-      for (i=0; i < 9; i ++)		
-      add += parseInt(cpf.charAt(i)) * (10 - i);	
-      rev = 11 - (add % 11);	
-      if (rev == 10 || rev == 11)		
-      rev = 0;	
-      if (rev != parseInt(cpf.charAt(9)))		
-      return false;		
-      // Valida o segundo digito	
-      add = 0;	
-      for (i = 0; i < 10; i ++)		
-      add += parseInt(cpf.charAt(i)) * (11 - i);	
-      rev = 11 - (add % 11);	
-      if (rev == 10 || rev == 11)	
-      rev = 0;	
-      if (rev != parseInt(cpf.charAt(10)))
-      return false;		
-      return true;   
-      }
-     //função de validacao do formulario de cadastro de pedido
-      function validaFormulario() {
+    
+    //aqui eu chamo a funcao valida formulario
+    document.getElementById("cadastrar").addEventListener("click", validaFormulario)
+   
+      //função de validacao do formulario de cadastro de pedido
+    function validaFormulario() {
       if(document.getElementById("nome").value != "" &&  
-      document.getElementById("CPF").value != "" && 
-      document.getElementById("ValorFrete").value != "" && 
-      document.getElementById("DataEntrega").value != ""){
-      alert("Pronto! Pedido cadastrado com sucesso.")
-      }else{
-      alert("Por favor, preencha os campos corretamente!")
+         document.getElementById("cpf").value != "" && 
+         document.getElementById("valorFrete").value != "" && 
+         document.getElementById("dataEntrega").value != ""){
+        alert("Pronto! Pedido cadastrado com sucesso.")
+        }else{
+        alert("Por favor, preencha os campos corretamente!")
       }}
   </script>
 </body>

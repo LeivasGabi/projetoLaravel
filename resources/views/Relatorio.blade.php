@@ -21,12 +21,12 @@
                 <a class="nav-link disabled" aria-current="page" href="#">Relatórios de Pedidos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Cadastrar Pedidos</a>
+                <a class="nav-link active" aria-current="page" href="http://localhost/ProjetoLaravel/resources/views/Form.blade.php">Cadastrar Pedidos</a>
             </li>
         </ul>
     </Header>
     <section class="section justify-content-center">
-        <table class="table table-striped table-bordered table-condensed table-hover shadow-lg p-3 mb-5 bg-body rounded">
+        <table class="table table-striped table-bordered table-condensed table-hover shadow-lg p-3 mb-5 bg-body rounded" alt="Max-width 85%">
             <thead>
                 <tr>
                     <th scope="col">Número</th>

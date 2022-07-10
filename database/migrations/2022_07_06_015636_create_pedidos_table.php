@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
            
             $table->increments("id_pedido")->unique();
-            $table->double("valor_frete");
-            $table->timestamps("data_entrega");
+            $table->double("valorFrete");
+            $table->timestamps("dataEntrega");
             $table->integer("cpf")->references("id")->on("cpf");
         });
     }

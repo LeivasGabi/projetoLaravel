@@ -9,8 +9,8 @@ class Pedido extends Model
 {
     protected $fillable = [
         'id_pedido', //coluna de auto incremento
-        'valor_frete', 
-        'data_entrega',
+        'valorFrete', 
+        'dataEntrega',
         'cpf', //chave estrangeira
     ];
 }

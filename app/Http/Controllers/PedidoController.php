@@ -12,10 +12,15 @@ class PedidoController extends Controller
     {
         return Pedido::all();
     }
-
-    public function store(Request $request)
+//funcao de criacao do pedido 
+    protected function create(array $data)
     {
-        Pedido::create($request->all());
+        return Pedido::create([
+            'nome' => $data['nome'],
+            'cpf' => $data['cpf'],
+            'valorFrete' => $data['valorFrete'],
+            'dataEntrega' => $data['dataEntrega'],
+        ]);
     }
 
     public function show($id)
