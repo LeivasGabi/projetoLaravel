@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('tbl_clientes', function (Blueprint $table) {
     
             $table->string("nome", 100);
-            $table->integer("cpf")->unique();
+            $table->integer("cpf");
             $table->timestamps("data_cadastro");
         });
     }

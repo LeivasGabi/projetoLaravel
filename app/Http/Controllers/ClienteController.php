@@ -16,7 +16,16 @@ class ClienteController extends Controller
    
     public function store(Request $request)
     {
-        Cliente::create($request->all());
+
+        //a ideia era salvar os dados do form em duas tabelas, clientes e pedido, e esta seria a logica para salvar em Clientes
+        $cliente = new Cliente;
+        $cliente->nome=$request->nome;
+        $cliente->cpf=$request->cpf;
+        $cleinte->dataCadastro=$request->dataCadastro;
+
+        $cliente->save();
+
+        return view('form');
     }
 
     public function show($id)

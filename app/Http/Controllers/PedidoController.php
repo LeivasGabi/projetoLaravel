@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pedido;
-
+use App\Models\Cliente;
 class PedidoController extends Controller
 {
    
@@ -13,26 +13,19 @@ class PedidoController extends Controller
         return Pedido::all();
     }
 //funcao de criacao do pedido 
-    protected function store(request $request)
+    public function store(request $request)
     {
-
+        //esta funcao esta pegando todos os inputs do form e enviando para o banco
         $pedido = new Pedido;
-
         $pedido->nome=$request->nome;
         $pedido->cpf=$request->cpf;
         $pedido->valorFrete=$request->valorFrete;
         $pedido->dataEntrega=$request->dataEntrega;
-
+        
         $pedido->save();
 
         return view('form');
-
-        // return Pedido::create([
-        //     'nome' => $data['nome'],
-        //     'cpf' => $data['cpf'],
-        //     'valorFrete' => $data['valorFrete'],
-        //     'dataEntrega' => $data['dataEntrega'],
-        // ]);
+        //ao final a funcao salva no banco e retorna uma view
     }
 
     public function show($id)

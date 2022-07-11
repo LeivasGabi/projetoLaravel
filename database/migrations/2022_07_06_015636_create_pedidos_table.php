@@ -18,7 +18,8 @@ return new class extends Migration
             $table->increments("id_pedido")->unique();
             $table->double("valorFrete");
             $table->timestamps("dataEntrega");
-            $table->integer("cpf")->references("id")->on("cpf");
+            $table->integer("cpf")->unique(); // a ideia era transformar o cpf em chave estrangeira mas não deu certo
+            
         });
     }
 

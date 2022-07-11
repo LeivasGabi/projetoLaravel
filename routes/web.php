@@ -18,16 +18,19 @@ use App\Http\Controllers\PedidoController;
 Route::get('/', function () {
     return view('form');
 });
+Route::post('/form', function () {
+    return view('form');
+});
+Route::get('/relatorio', function () {
+    return view('relatorio');
+});
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/Relatorio', [App\Http\Controllers\ClienteController::class, 'index']); //lista todos
-Route::post('/Form', [App\Http\Controllers\ClienteController::class, 'store']); //cria
+Route::post('/form', [App\Http\Controllers\ClienteController::class, 'store']); //cria
 
 Route::get('/Relatorio', [App\Http\Controllers\PedidoController::class, 'index']); //lista todos
 
 Route::post('/form', [App\Http\Controllers\PedidoController::class, 'store'])->name('form'); //cria 
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

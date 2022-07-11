@@ -12,5 +12,13 @@ class Pedido extends Model
         'valorFrete', 
         'dataEntrega',
         'cpf', //chave estrangeira
+        'nome',
+        
     ];
+ 
+    //funcao com intuito de unir as duas tabelas
+    // public function clientes(){
+    //     return $this->hasMany('App\Models\Cliente');
+    // }
 }
+
