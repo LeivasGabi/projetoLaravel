@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\PedidoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +16,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Relatorio');
+    return view('form');
 });
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/Relatorio', [App\Http\Controllers\ClienteController::class, 'index']); //lista todos
+Route::post('/Form', [App\Http\Controllers\ClienteController::class, 'store']); //cria
+
+Route::get('/Relatorio', [App\Http\Controllers\PedidoController::class, 'index']); //lista todos
+
+Route::post('/form', [App\Http\Controllers\PedidoController::class, 'store'])->name('form'); //cria 
 
 Auth::routes();
 

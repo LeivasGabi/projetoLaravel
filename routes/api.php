@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PedidoController;
 
-//inicio rotas cliente
+//rotas cliente
 Route::get('cliente', [ClienteController::class, 'index']); //lista todos
 Route::get('cliente/{id}', [ClienteController::class, 'show']); //lista um especifico
 Route::post('cliente', [ClienteoController::class, 'store']); //cria 

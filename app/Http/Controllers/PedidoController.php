@@ -13,14 +13,26 @@ class PedidoController extends Controller
         return Pedido::all();
     }
 //funcao de criacao do pedido 
-    protected function create(array $data)
+    protected function store(request $request)
     {
-        return Pedido::create([
-            'nome' => $data['nome'],
-            'cpf' => $data['cpf'],
-            'valorFrete' => $data['valorFrete'],
-            'dataEntrega' => $data['dataEntrega'],
-        ]);
+
+        $pedido = new Pedido;
+
+        $pedido->nome=$request->nome;
+        $pedido->cpf=$request->cpf;
+        $pedido->valorFrete=$request->valorFrete;
+        $pedido->dataEntrega=$request->dataEntrega;
+
+        $pedido->save();
+
+        return view('form');
+
+        // return Pedido::create([
+        //     'nome' => $data['nome'],
+        //     'cpf' => $data['cpf'],
+        //     'valorFrete' => $data['valorFrete'],
+        //     'dataEntrega' => $data['dataEntrega'],
+        // ]);
     }
 
     public function show($id)

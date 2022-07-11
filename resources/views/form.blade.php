@@ -1,3 +1,17 @@
+<?php
+if(isset($_POST['submit'])) {
+
+  include_once('./config/formConfig.php');
+
+  $nome = $_POST['nome'];
+  $cpf = $_POST['cpf'];
+  $valorFrete = $_POST['valorFrete'];
+  $dataEntrega = $_POST['dataEntrega'];
+
+  $result = mysqli_query($conexao, "INSERT TO projetolaravel('$nome','$cpf','$valorFrete', '$dataEntrega')");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,42 +30,42 @@
   <!--arquivos bootstrap -->
 
   <Header>
-        <ul class="nav justify-content-center fs-2">
-          <li class="nav-item">
-              <a class="nav-link disabled" aria-current="page" href="#">Cadastrar Pedidos</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="http://localhost/ProjetoLaravel/resources/views/Relatorio.blade.php">Relatórios de Pedidos</a>
-          </li>
-        </ul>
-    </Header>
+    <ul class="nav justify-content-center fs-2">
+      <li class="nav-item">
+          <a class="nav-link disabled" aria-current="page" href="#">Cadastrar Pedidos</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://localhost/ProjetoLaravel/resources/views/Relatorio.blade.php">Relatórios de Pedidos</a>
+      </li>
+    </ul>
+  </Header>
     <section>
-      <form class="row g-3 shadow-lg p-3 mb-5 bg-body" alt="Max-width 85%">
+      <form class="row g-3 shadow-lg p-3 mb-5 bg-body" alt="Max-width 85%" action="form.blade.php" method="POST">
         <div class="col-md-6">
           <label for="nome" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="nome" required maxlength="45">
+          <input type="text" class="form-control" name="nome" id="nome" required maxlength="45">
         </div>
         <div class="col-md-6">
           <label for="cpf" class="form-label">CPF</label>
-          <input type="number" class="form-control" id="cpf" placeholder="000.000.000-00" data-minlength="11" required>
+          <input type="number" class="form-control" name="cpf" id="cpf" placeholder="000.000.000-00" required>
         </div>
         <div class="col-md-6">
           <label for="valorFrete" class="form-label">Valor do Frete</label>
-          <input type="number" class="form-control" id="valorFrete" placeholder="R$ 150,85" required>
+          <input type="number" class="form-control" name="valorFrete" id="valorFrete" placeholder="R$ 150,85" required>
         </div>
         <div class="col-md-2">
           <label for="dataEntrega" class="form-label">Data de Entrega</label>
-          <input type="date" class="form-control" id="dataEntrega" required>
+          <input type="date" class="form-control" name="dataEntrega" id="dataEntrega" required>
         </div>
         <div class="col-12">
-          <button type="submit" id="cadastrar" class="btn btn-primary" onClick="validaFormulario()">Cadastrar</button>
+          <button type="submit" name="submit" id="submit" class="btn btn-primary" onClick="validaFormulario()">Cadastrar</button>
         </div>
       </form>
     </section>
   <script>  
     
     //aqui eu chamo a funcao valida formulario
-    document.getElementById("cadastrar").addEventListener("click", validaFormulario)
+    document.getElementById("submit").addEventListener("click", validaFormulario)
    
       //função de validacao do formulario de cadastro de pedido
     function validaFormulario() {
